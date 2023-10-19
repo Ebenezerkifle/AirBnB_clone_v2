@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HBNB</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/3-footer.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/3-header.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/4-common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/6-filters.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/8-places.css') }}">
+</head>
+<body>
+    <header>
+        <h1>HBNB</h1>
+    </header>
+    <section class="container">
+        <div class="places-filters">
+            <div class="places-filter">
+                <h3>States</h3>
+                <div class="filter">
+                    {% for state in states | sort(attribute='name') %}
+                        <label class="check">
+                            <input type="checkbox" class="input-check">
+                            <span>{{ state.name }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="places-filter">
+                <h3>Cities</h3>
+                <div class="filter">
+                    {% for city in cities | sort(attribute='name') %}
+                        <label class="check">
+                            <input type="checkbox" class="input-check">
+                            <span>{{ city.name }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="places-filter">
+                <h3>Amenities</h3>
+                <div class="filter">
+                    {% for amenity in amenities | sort(attribute='name') %}
+                        <label class="check">
+                            <input type="checkbox" class="input-check">
+                            <span>{{ amenity.name }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="places">
+            <div class="place">
+                <div class="place-price">$100</div>
+                <div class="place-name">Place 1</div>
+            </div>
+            <div class="place">
+                <div class="place-price">$150</div>
+                <div class="place-name">Place 2</div>
+            </div>
+            <!-- Repeat for other places -->
+        </div>
+    </section>
+    <footer>
+        <p class="footer">Holberton School</p>
+    </footer>
+</body>
+</html>
